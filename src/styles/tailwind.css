@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #1E3A8A; /* blue-900 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #0F766E; /* teal-700 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #F59E0B; /* amber-500 */
+    --color-accent-foreground: #1F2937; /* gray-800 */
+    
+    /* Background Colors */
+    --color-background: #FAFBFC; /* gray-50 */
+    --color-foreground: #1F2937; /* gray-800 */
+    
+    /* Surface Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1F2937; /* gray-800 */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1F2937; /* gray-800 */
+    
+    /* Muted Colors */
+    --color-muted: #F3F4F6; /* gray-100 */
+    --color-muted-foreground: #6B7280; /* gray-500 */
+    
+    /* Border & Input */
+    --color-border: #E5E7EB; /* gray-200 */
+    --color-input: #E5E7EB; /* gray-200 */
+    --color-ring: #1E3A8A; /* blue-900 */
+    
+    /* Status Colors */
+    --color-success: #059669; /* emerald-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    --color-error: #DC2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Radius */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Primary Colors */
+    --color-primary: #3B82F6; /* blue-500 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #14B8A6; /* teal-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #FBBF24; /* amber-400 */
+    --color-accent-foreground: #111827; /* gray-900 */
+    
+    /* Background Colors */
+    --color-background: #111827; /* gray-900 */
+    --color-foreground: #F9FAFB; /* gray-50 */
+    
+    /* Surface Colors */
+    --color-card: #1F2937; /* gray-800 */
+    --color-card-foreground: #F9FAFB; /* gray-50 */
+    
+    /* Popover Colors */
+    --color-popover: #1F2937; /* gray-800 */
+    --color-popover-foreground: #F9FAFB; /* gray-50 */
+    
+    /* Muted Colors */
+    --color-muted: #374151; /* gray-700 */
+    --color-muted-foreground: #9CA3AF; /* gray-400 */
+    
+    /* Border & Input */
+    --color-border: #374151; /* gray-700 */
+    --color-input: #374151; /* gray-700 */
+    --color-ring: #3B82F6; /* blue-500 */
+    
+    /* Status Colors */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  /* Navigation Styles */
+  .header-nav {
+    @apply fixed top-0 left-0 right-0 h-16 bg-card border-b border-border z-[1000];
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-container {
+    @apply h-full max-w-7xl mx-auto px-4 flex items-center justify-between;
+  }
+  
+  .header-logo {
+    @apply flex items-center gap-3 no-underline;
+  }
+  
+  .header-logo-icon {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2);
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  
+  .header-logo:hover .header-logo-icon {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+  }
+  
+  .header-logo-text {
+    @apply text-lg font-semibold text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .header-nav-list {
+    @apply hidden lg:flex items-center gap-1;
+  }
+  
+  .header-nav-item {
+    @apply relative px-4 py-2 rounded-md text-sm font-medium text-muted-foreground no-underline;
+    transition: color 200ms ease-out, background-color 200ms ease-out;
+  }
+  
+  .header-nav-item:hover {
+    @apply text-foreground bg-muted;
+  }
+.header-nav-item.active  {
+    @apply text-primary;
+  }
+  
+  .header-nav-item.active::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-12 h-0.5 bg-primary rounded-full;
+    transform: translateX(-50%);
+  }
+  
+  .header-actions {
+    @apply flex items-center gap-3;
+  }
+  
+  .mobile-menu-button {
+    @apply lg:hidden fixed top-4 right-4 z-[1050] p-2 rounded-md bg-card border border-border;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 200ms ease-out;
+  }
+  
+  .mobile-menu-button:hover {
+    @apply bg-muted;
+  }
+.mobile-menu-overlay  {
+    @apply fixed inset-0 backdrop-blur-sm z-[1040] lg:hidden;
+    animation: fadeIn 200ms ease-out;
+  }
+  
+  .mobile-menu {
+    @apply fixed top-0 right-0 bottom-0 w-64 bg-card border-l border-border z-[1045] lg:hidden;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+    animation: slideInRight 300ms ease-out;
+  }
+  
+  .mobile-menu-header {
+    @apply flex items-center justify-between p-4 border-b border-border;
+  }
+  
+  .mobile-menu-nav {
+    @apply flex flex-col p-4 gap-2;
+  }
+  
+  .mobile-menu-item {
+    @apply px-4 py-3 rounded-md text-sm font-medium text-muted-foreground no-underline;
+    transition: color 200ms ease-out, background-color 200ms ease-out;
+  }
+  
+  .mobile-menu-item:hover {
+    @apply text-foreground bg-muted;
+  }
+.mobile-menu-item.active  {
+    @apply text-primary;
+  }
+  
+  /* Progress Indicator Styles */
+  .progress-indicator {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted text-xs font-medium;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .progress-indicator-dot {
+    @apply w-2 h-2 rounded-full;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .progress-indicator-dot.success {
+    @apply bg-success;
+  }
+  
+  .progress-indicator-dot.warning {
+    @apply bg-warning;
+  }
+  
+  .progress-indicator-dot.processing {
+    @apply bg-primary;
+  }
+  
+  /* User Context Switcher Styles */
+  .user-context-switcher {
+    @apply flex items-center gap-2 px-3 py-2 rounded-md bg-muted text-sm font-medium cursor-pointer;
+    transition: background-color 200ms ease-out;
+  }
+.user-context-switcher:hover  {
+    
+  }
+  
+  .user-role-badge {
+    @apply px-2 py-0.5 rounded text-xs font-medium;
+  }
+.user-role-badge.student  {
+    @apply text-primary;
+  }
+.user-role-badge.instructor  {
+    @apply text-secondary;
+  }
+  
+  /* Main Content Layout */
+  .main-content {
+    @apply pt-16 min-h-screen;
+  }
+  
+  /* Animation Keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
