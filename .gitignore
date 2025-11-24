@@ -1,1 +1,9 @@
 node_modules
+.DS_Store
+*.DS_Store
+/build
+.vercel
+.vscode/
+.idea/
+package-lock.json
+vite.config.*s.*
